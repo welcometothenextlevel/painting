@@ -25,7 +25,6 @@
       </button>
 
       <ul class="nav__list" id="nav-list">
-
         <li class="nav__item nav__item--has-drop" id="services-drop">
           <a href="#services" class="nav__link">Services</a>
           <ul class="nav__dropdown">
@@ -37,53 +36,84 @@
             <li><a href="roof-painting.html">Roof Painting</a></li>
           </ul>
         </li>
-
         <li class="nav__item"><a href="#why-us" class="nav__link">Why Us</a></li>
         <li class="nav__item"><a href="#gallery" class="nav__link">Gallery</a></li>
         <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
-
         <li class="nav__item">
           <a href="tel:04XXXXXXXX" class="btn btn--orange nav__phone">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
             04XX XXX XXX
           </a>
         </li>
-
       </ul>
     </nav>
   </header>
 
-  <!-- ── HERO ── -->
+  <!-- ── HERO — split layout ── -->
   <section class="hero">
-    <div class="hero__inner">
-      <span class="hero__kicker">Perth's Trusted Painting Professionals</span>
-      <h1 class="hero__title">Quality Painting.<br><span>Done Right.</span></h1>
-      <p class="hero__desc">
-        Professional painting for homes and businesses across Perth, WA.
-        Clean preparation, quality finishes, and a team that treats your
-        property with respect.
-      </p>
-      <div class="hero__ctas">
-        <a href="#contact" class="btn btn--red btn--lg">Get a Free Quote</a>
-        <a href="tel:04XXXXXXXX" class="btn btn--outline-white btn--lg">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
-          Call Now
-        </a>
+    <div class="hero__split">
+
+      <!-- Left: text -->
+      <div class="hero__content">
+        <span class="hero__kicker">Perth's Trusted Painting Professionals</span>
+        <h1 class="hero__title">
+          Quality Painting.<br>
+          <span>Done Right.</span>
+        </h1>
+        <p class="hero__desc">
+          Professional painting for homes and businesses across Perth, WA.
+          Clean preparation, quality finishes, and a crew that treats your
+          property with respect.
+        </p>
+        <div class="hero__ctas">
+          <button class="btn btn--red btn--lg js-open-modal">Get a Free Quote</button>
+          <a href="tel:04XXXXXXXX" class="btn btn--outline-white btn--lg">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+            Call Now
+          </a>
+        </div>
+        <div class="hero__badges">
+          <span class="hero__badge">Licensed &amp; Insured</span>
+          <span class="hero__badge">Free Quotes</span>
+          <span class="hero__badge">Perth Locals</span>
+          <span class="hero__badge">All Areas Covered</span>
+        </div>
       </div>
-      <div class="hero__badges">
-        <span class="hero__badge">Licensed &amp; Insured</span>
-        <span class="hero__badge">Free Quotes</span>
-        <span class="hero__badge">Perth Locals</span>
-        <span class="hero__badge">All Areas Covered</span>
+
+      <!-- Right: painter image -->
+      <div class="hero__visual">
+        <img
+          src="images/painter-hero.webp"
+          alt="Professional painter holding paint brush — Perth"
+          class="hero__painter"
+          onerror="this.closest('.hero__visual').style.display='none'"
+        />
+        <!-- Stat badge bottom-left -->
+        <div class="hero__img-badge">
+          <div class="hero__img-badge-icon">🎨</div>
+          <div>
+            <strong class="js-counter" data-target="500">0</strong>+
+            <span>Jobs Completed</span>
+          </div>
+        </div>
+        <!-- Stat badge top-right -->
+        <div class="hero__img-badge hero__img-badge--top">
+          <div class="hero__img-badge-icon" style="background:var(--orange);">⭐</div>
+          <div>
+            <strong>10+</strong>
+            <span>Years in Perth</span>
+          </div>
+        </div>
       </div>
+
     </div>
   </section>
 
-  <!-- ── STATS ── -->
+  <!-- ── STATS BAR ── -->
   <div class="stats-bar">
     <div class="stats-bar__inner">
       <div class="stat">
-        <span class="stat__num">500+</span>
+        <span class="stat__num js-counter" data-target="500">500</span>+
         <span class="stat__label">Jobs Completed</span>
       </div>
       <div class="stat">
@@ -112,102 +142,58 @@
 
       <div class="services__grid">
 
-        <div class="service-card">
+        <div class="service-card reveal">
           <div class="service-card__icon">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="6" y="10" width="36" height="28" rx="2" stroke="currentColor" stroke-width="2.5"/>
-              <path d="M6 18h36" stroke="currentColor" stroke-width="2.5"/>
-              <path d="M18 18v20" stroke="currentColor" stroke-width="2.5"/>
-              <rect x="11" y="24" width="5" height="7" rx="1" fill="currentColor" opacity="0.5"/>
-            </svg>
+            <svg viewBox="0 0 48 48" fill="none"><rect x="6" y="10" width="36" height="28" rx="2" stroke="currentColor" stroke-width="2.5"/><path d="M6 18h36M18 18v20" stroke="currentColor" stroke-width="2.5"/><rect x="11" y="24" width="5" height="7" rx="1" fill="currentColor" opacity="0.5"/></svg>
           </div>
           <h3>Interior Painting</h3>
           <p>Walls, ceilings, trims and feature accents — flawless finishes that make every room feel new.</p>
-          <a href="interior-painting.html" class="service-card__link">
-            Learn more
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
+          <a href="interior-painting.html" class="service-card__link">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
 
-        <div class="service-card">
+        <div class="service-card reveal reveal-delay-1">
           <div class="service-card__icon">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M8 38L24 10l16 28H8z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
-              <path d="M14 38h20" stroke="currentColor" stroke-width="2.5"/>
-              <path d="M20 38v-10h8v10" stroke="currentColor" stroke-width="2.5"/>
-            </svg>
+            <svg viewBox="0 0 48 48" fill="none"><path d="M8 38L24 10l16 28H8z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="M14 38h20M20 38v-10h8v10" stroke="currentColor" stroke-width="2.5"/></svg>
           </div>
           <h3>Exterior Painting</h3>
           <p>Weather-resistant coatings that protect your home and keep it looking great for years to come.</p>
-          <a href="exterior-painting.html" class="service-card__link">
-            Learn more
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
+          <a href="exterior-painting.html" class="service-card__link">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
 
-        <div class="service-card">
+        <div class="service-card reveal reveal-delay-2">
           <div class="service-card__icon">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M10 38V20L24 10l14 10v18" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
-              <rect x="18" y="28" width="12" height="10" rx="1" stroke="currentColor" stroke-width="2.5"/>
-              <path d="M6 38h36" stroke="currentColor" stroke-width="2.5"/>
-            </svg>
+            <svg viewBox="0 0 48 48" fill="none"><path d="M10 38V20L24 10l14 10v18" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><rect x="18" y="28" width="12" height="10" rx="1" stroke="currentColor" stroke-width="2.5"/><path d="M6 38h36" stroke="currentColor" stroke-width="2.5"/></svg>
           </div>
           <h3>Residential</h3>
           <p>Houses, units, and townhouses — we treat every home with care and finish every job properly.</p>
-          <a href="residential.html" class="service-card__link">
-            Learn more
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
+          <a href="residential.html" class="service-card__link">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
 
-        <div class="service-card">
+        <div class="service-card reveal">
           <div class="service-card__icon">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="6" y="14" width="36" height="26" rx="2" stroke="currentColor" stroke-width="2.5"/>
-              <path d="M6 22h36" stroke="currentColor" stroke-width="2.5"/>
-              <rect x="16" y="8" width="16" height="6" stroke="currentColor" stroke-width="2.5"/>
-              <path d="M18 28h4M26 28h4M18 34h4M26 34h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            </svg>
+            <svg viewBox="0 0 48 48" fill="none"><rect x="6" y="14" width="36" height="26" rx="2" stroke="currentColor" stroke-width="2.5"/><path d="M6 22h36" stroke="currentColor" stroke-width="2.5"/><rect x="16" y="8" width="16" height="6" stroke="currentColor" stroke-width="2.5"/><path d="M18 28h4M26 28h4M18 34h4M26 34h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
           </div>
           <h3>Commercial</h3>
           <p>Offices, retail, and warehouses — professional work with minimal disruption to your business.</p>
-          <a href="commercial.html" class="service-card__link">
-            Learn more
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
+          <a href="commercial.html" class="service-card__link">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
 
-        <div class="service-card">
+        <div class="service-card reveal reveal-delay-1">
           <div class="service-card__icon">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="8" y="8" width="32" height="32" rx="2" stroke="currentColor" stroke-width="2.5"/>
-              <path d="M8 24h32M24 8v32" stroke="currentColor" stroke-width="2.5"/>
-              <circle cx="24" cy="24" r="5" fill="currentColor" opacity="0.35"/>
-            </svg>
+            <svg viewBox="0 0 48 48" fill="none"><rect x="8" y="8" width="32" height="32" rx="2" stroke="currentColor" stroke-width="2.5"/><path d="M8 24h32M24 8v32" stroke="currentColor" stroke-width="2.5"/><circle cx="24" cy="24" r="5" fill="currentColor" opacity="0.35"/></svg>
           </div>
           <h3>Feature Walls</h3>
           <p>Bold colours, textured finishes, and statement walls — make your space genuinely unique.</p>
-          <a href="feature-walls.html" class="service-card__link">
-            Learn more
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
+          <a href="feature-walls.html" class="service-card__link">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
 
-        <div class="service-card">
+        <div class="service-card reveal reveal-delay-2">
           <div class="service-card__icon">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4 22L24 10l20 12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M4 22l20 12 20-12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
-              <path d="M24 34v8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-            </svg>
+            <svg viewBox="0 0 48 48" fill="none"><path d="M4 22L24 10l20 12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 22l20 12 20-12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/><path d="M24 34v8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
           </div>
           <h3>Roof Painting</h3>
           <p>Specialist coatings that seal, restore colour, and extend the life of your roof.</p>
-          <a href="roof-painting.html" class="service-card__link">
-            Learn more
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
+          <a href="roof-painting.html" class="service-card__link">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
 
       </div>
@@ -218,14 +204,14 @@
   <section class="why-us" id="why-us">
     <div class="container why-us__inner">
 
-      <div class="why-us__cta-side">
+      <div class="why-us__cta-side reveal">
         <span class="section-eyebrow">Why Choose Us</span>
         <h2 class="section-title">A Painting Company You Can Actually Rely On</h2>
         <p class="section-lead">
           We're Perth locals who take pride in every job. You get honest pricing,
           proper preparation, and a crew that cleans up after themselves.
         </p>
-        <a href="#contact" class="btn btn--red btn--lg">Get a Free Quote</a>
+        <button class="btn btn--red btn--lg js-open-modal">Get a Free Quote</button>
         <div class="why-us__trust">
           <span>Licensed Painter</span>
           <span>Fully Insured</span>
@@ -235,28 +221,28 @@
       </div>
 
       <div class="features-list">
-        <div class="feature">
+        <div class="feature reveal">
           <span class="feature__num">1</span>
           <div class="feature__body">
             <h4>Licensed &amp; Fully Insured</h4>
             <p>We hold all required licences and carry comprehensive public liability insurance. You're protected from the first brushstroke to the last.</p>
           </div>
         </div>
-        <div class="feature">
+        <div class="feature reveal reveal-delay-1">
           <span class="feature__num">2</span>
           <div class="feature__body">
             <h4>Free, Transparent Quotes</h4>
             <p>No hidden fees, no surprises. We provide detailed written quotes so you know exactly what you're getting before any work starts.</p>
           </div>
         </div>
-        <div class="feature">
+        <div class="feature reveal reveal-delay-2">
           <span class="feature__num">3</span>
           <div class="feature__body">
             <h4>Clean, Careful Workmanship</h4>
-            <p>We prep thoroughly, protect your furniture and floors, and leave the site tidy. Our finishes are clean lines, no drips, no shortcuts.</p>
+            <p>We prep thoroughly, protect your furniture and floors, and leave the site tidy. Clean lines, no drips, no shortcuts.</p>
           </div>
         </div>
-        <div class="feature">
+        <div class="feature reveal reveal-delay-3">
           <span class="feature__num">4</span>
           <div class="feature__body">
             <h4>Perth Locals — We Show Up on Time</h4>
@@ -268,25 +254,70 @@
     </div>
   </section>
 
+  <!-- ── PAINTERS PHOTO SECTION ── -->
+  <section class="painters-section" id="our-team">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-eyebrow">Our Team</span>
+        <h2 class="section-title section-title--white">Real Painters. Real Results.</h2>
+        <p class="section-lead section-lead--white">
+          Perth locals who show up on time, work clean, and take pride in every finish.
+        </p>
+      </div>
+      <div class="painters-grid">
+        <div class="painter-card reveal" data-lightbox="images/painter-1.webp" data-caption="Our team at work — Perth">
+          <img
+            src="images/painter-1.webp"
+            alt="Professional painter Perth — holding paint brush"
+            onerror="this.closest('.painter-card').style.background='#222'; this.style.display='none';"
+          />
+          <div class="painter-card__overlay">
+            <span class="painter-card__label">Quality Workmanship</span>
+          </div>
+        </div>
+        <div class="painter-card reveal reveal-delay-1" data-lightbox="images/painter-2.webp" data-caption="Precision painting — Perth homes">
+          <img
+            src="images/painter-2.webp"
+            alt="Painter with paint roller — professional Perth painter"
+            onerror="this.closest('.painter-card').style.background='#222'; this.style.display='none';"
+          />
+          <div class="painter-card__overlay">
+            <span class="painter-card__label">Every Detail Counts</span>
+          </div>
+        </div>
+        <div class="painter-card reveal reveal-delay-2" data-lightbox="images/painter-3.webp" data-caption="Professional painting team — Perth WA">
+          <img
+            src="images/painter-3.webp"
+            alt="Professional painter — red and orange brand colours"
+            onerror="this.closest('.painter-card').style.background='#222'; this.style.display='none';"
+          />
+          <div class="painter-card__overlay">
+            <span class="painter-card__label">Perth's Best Painters</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ── GALLERY ── -->
   <section class="gallery" id="gallery">
     <div class="container">
       <div class="text-center">
         <span class="section-eyebrow">Our Work</span>
         <h2 class="section-title">Recent Projects</h2>
-        <p class="section-lead">Photos of our Perth painting projects — real work, real results.</p>
+        <p class="section-lead">Photos of our Perth painting projects — real work, real results. Click to enlarge.</p>
       </div>
       <div class="gallery__grid">
-        <div class="gallery__item">
+        <div class="gallery__item reveal" data-lightbox="images/placeholder-interior.svg" data-caption="Interior painting — Perth home">
           <img src="images/placeholder-interior.svg" alt="Interior painting project — Perth home" class="gallery__img" />
         </div>
-        <div class="gallery__item">
+        <div class="gallery__item reveal reveal-delay-1" data-lightbox="images/placeholder-exterior.svg" data-caption="Exterior house repaint — Perth">
           <img src="images/placeholder-exterior.svg" alt="Exterior house repaint — Perth" class="gallery__img" />
         </div>
-        <div class="gallery__item">
+        <div class="gallery__item reveal reveal-delay-2" data-lightbox="images/placeholder-feature.svg" data-caption="Feature wall — Perth">
           <img src="images/placeholder-feature.svg" alt="Feature wall — Perth" class="gallery__img" />
         </div>
-        <div class="gallery__item">
+        <div class="gallery__item reveal reveal-delay-3" data-lightbox="images/placeholder-commercial.svg" data-caption="Commercial office painting — Perth">
           <img src="images/placeholder-commercial.svg" alt="Commercial office painting — Perth" class="gallery__img" />
         </div>
       </div>
@@ -297,7 +328,7 @@
   <section class="contact" id="contact">
     <div class="container contact__inner">
 
-      <div class="contact__info">
+      <div class="contact__info reveal">
         <span class="section-eyebrow">Get in Touch</span>
         <h2 class="section-title">Request a Free Quote</h2>
         <p class="section-lead">
@@ -319,7 +350,7 @@
         </ul>
       </div>
 
-      <form class="quote-form" action="mailto:hello@example.com" method="post" enctype="text/plain" id="quote-form">
+      <form class="quote-form reveal reveal-delay-1" action="mailto:hello@example.com" method="post" enctype="text/plain" id="quote-form">
         <div class="form-row">
           <div class="form-group">
             <label for="name">Full Name *</label>
@@ -349,7 +380,7 @@
         </div>
         <div class="form-group">
           <label for="message">Tell Us About Your Project</label>
-          <textarea id="message" name="message" rows="4" placeholder="Property type, size, preferred timeline, any specific requirements…"></textarea>
+          <textarea id="message" name="message" rows="4" placeholder="Property type, size, preferred timeline…"></textarea>
         </div>
         <button type="submit" class="btn btn--red btn--lg btn--full">Send Quote Request</button>
         <p class="form-note">We'll respond within 24 hours. No spam, ever.</p>
@@ -399,7 +430,7 @@
       <div class="footer__col">
         <h5>Service Areas</h5>
         <p class="footer__area">We service all Perth metro suburbs — Northern, Southern, Eastern and Western corridors. Free quotes anywhere in the metro area.</p>
-        <a href="#contact" class="btn btn--red" style="margin-top:1.1rem;display:inline-flex;">Free Quote →</a>
+        <button class="btn btn--red js-open-modal" style="margin-top:1.1rem;">Free Quote →</button>
       </div>
     </div>
     <div class="footer__bottom">

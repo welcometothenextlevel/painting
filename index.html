@@ -1,231 +1,388 @@
 <!DOCTYPE html>
-<html lang="en-AU">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="[Business Name] Painting provides residential and commercial painting services across Perth, WA. Request a free quote for interior, exterior, roof, and feature wall painting.">
-  <title>[Business Name] Painting | Perth Painting Specialists</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[Business Name] Painting | Perth's Professional Painters</title>
+  <meta name="description" content="Professional painting services in Perth, WA. Interior, exterior, residential, commercial, feature walls and roof painting. Free quotes. Licensed & insured." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <header class="site-header">
-    <a class="wordmark" href="#top" aria-label="[Business Name] Painting home">
-      <span class="wordmark-name">[Business Name]</span>
-      <span class="wordmark-trade">Painting</span>
-    </a>
 
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
-      <span class="sr-only">Toggle navigation</span>
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+  <!-- ═══════════════════════════════════════
+       NAVIGATION
+  ═══════════════════════════════════════ -->
+  <header class="site-header" id="top">
+    <nav class="nav container">
+      <a href="#top" class="nav__logo">
+        <span class="logo-block logo-block--red">[Business</span><span class="logo-block logo-block--white">Name]</span>
+        <span class="logo-tag">PAINTING</span>
+      </a>
 
-    <nav class="site-nav" id="site-nav" aria-label="Main navigation">
-      <a href="#services">Services</a>
-      <a href="#why-us">Why Us</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#quote">Free Quote</a>
+      <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav__links" id="nav-links">
+        <li><a href="#services" class="nav__link">Services</a></li>
+        <li><a href="#why-us" class="nav__link">Why Us</a></li>
+        <li><a href="#gallery" class="nav__link">Gallery</a></li>
+        <li><a href="#contact" class="nav__link">Contact</a></li>
+        <li>
+          <a href="tel:04XXXXXXXX" class="btn btn--orange nav__cta">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+            04XX XXX XXX
+          </a>
+        </li>
+      </ul>
     </nav>
-
-    <a class="header-call" href="tel:04XXXXXXXX">Call 04XX XXX XXX</a>
   </header>
 
-  <main id="top">
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-content">
-        <p class="eyebrow">Perth, WA residential and commercial painters</p>
-        <h1 id="hero-title">Perth's Trusted Painting Specialists</h1>
-        <p class="hero-copy">Reliable painting for Perth homes, rentals, offices, and commercial spaces. Clean preparation, tidy workmanship, and clear communication from quote to final coat.</p>
-        <div class="hero-actions">
-          <a class="button button-primary" href="#quote">Get a Free Quote</a>
-          <a class="button button-secondary" href="tel:04XXXXXXXX">Call Now</a>
-        </div>
+  <!-- ═══════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════ -->
+  <section class="hero" id="hero">
+    <div class="hero__backdrop"></div>
+    <div class="hero__content container">
+      <div class="hero__badge">Perth's Trusted Painters</div>
+      <h1 class="hero__headline">
+        We Don't Just Paint.<br />
+        <span class="text--orange">We Transform.</span>
+      </h1>
+      <p class="hero__sub">
+        Professional painting for homes and businesses across Perth, WA.<br />
+        Quality finishes. Clean workmanship. Guaranteed results.
+      </p>
+      <div class="hero__ctas">
+        <a href="#contact" class="btn btn--red btn--lg">Get a Free Quote</a>
+        <a href="tel:04XXXXXXXX" class="btn btn--outline btn--lg">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+          Call Now
+        </a>
+      </div>
+      <div class="hero__trust">
+        <span>✔ Licensed &amp; Insured</span>
+        <span>✔ Free Quotes</span>
+        <span>✔ Perth Locals</span>
+      </div>
+    </div>
+    <div class="hero__stripe"></div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       SERVICES
+  ═══════════════════════════════════════ -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">What We Do</span>
+        <h2 class="section-title">Our Services</h2>
+        <p class="section-sub">From a single room to a full commercial fit-out — we've got Perth covered.</p>
       </div>
 
-      <div class="hero-panel" aria-label="Service highlights">
-        <div>
-          <span class="panel-label">Fast quotes</span>
-          <strong>Clear scope before work starts</strong>
+      <div class="services__grid">
+
+        <div class="service-card">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="6" y="10" width="36" height="28" rx="2" stroke="currentColor" stroke-width="3"/>
+              <path d="M6 18h36" stroke="currentColor" stroke-width="3"/>
+              <path d="M18 18v20" stroke="currentColor" stroke-width="3"/>
+              <rect x="12" y="24" width="4" height="6" rx="1" fill="currentColor"/>
+            </svg>
+          </div>
+          <h3>Interior Painting</h3>
+          <p>Walls, ceilings, trims and feature walls — flawless finishes that breathe new life into any room.</p>
         </div>
-        <div>
-          <span class="panel-label">Perth wide</span>
-          <strong>Homes, strata, rentals, and shops</strong>
+
+        <div class="service-card">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 38 L24 10 L40 38 Z" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+              <path d="M14 38h20" stroke="currentColor" stroke-width="3"/>
+              <path d="M20 38V28h8v10" stroke="currentColor" stroke-width="3"/>
+            </svg>
+          </div>
+          <h3>Exterior Painting</h3>
+          <p>Weather-resistant coatings that protect your home and keep it looking sharp for years.</p>
         </div>
-        <div>
-          <span class="panel-label">No runaround</span>
-          <strong>Reliable scheduling and tidy finishes</strong>
+
+        <div class="service-card">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 38V20L24 10l14 10v18" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+              <rect x="18" y="28" width="12" height="10" rx="1" stroke="currentColor" stroke-width="3"/>
+              <path d="M6 38h36" stroke="currentColor" stroke-width="3"/>
+            </svg>
+          </div>
+          <h3>Residential</h3>
+          <p>Houses, units, townhouses — we treat every home with care and respect for your space.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="6" y="14" width="36" height="26" rx="2" stroke="currentColor" stroke-width="3"/>
+              <path d="M6 22h36" stroke="currentColor" stroke-width="3"/>
+              <path d="M16 8h16v6H16z" stroke="currentColor" stroke-width="3"/>
+              <path d="M18 28h4M26 28h4M18 34h4M26 34h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Commercial</h3>
+          <p>Offices, retail, warehouses — professional-grade work with minimal disruption to your business.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="8" y="8" width="32" height="32" rx="2" stroke="currentColor" stroke-width="3"/>
+              <path d="M8 24h32" stroke="currentColor" stroke-width="3"/>
+              <path d="M24 8v32" stroke="currentColor" stroke-width="3"/>
+              <circle cx="24" cy="24" r="5" fill="currentColor"/>
+            </svg>
+          </div>
+          <h3>Feature Walls</h3>
+          <p>Bold textures, statement colours, decorative finishes — make your space truly one of a kind.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 22 L24 10 L44 22" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M4 22 L24 34 L44 22" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M24 34v8" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Roof Painting</h3>
+          <p>Extend the life of your roof with specialist coatings that seal, protect and restore colour.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       WHY CHOOSE US
+  ═══════════════════════════════════════ -->
+  <section class="why-us" id="why-us">
+    <div class="why-us__bg"></div>
+    <div class="container why-us__inner">
+      <div class="why-us__text">
+        <span class="section-tag section-tag--light">Why Us</span>
+        <h2 class="section-title section-title--white">Built on Trust.<br/>Backed by Results.</h2>
+        <p class="section-sub section-sub--light">
+          We're Perth locals who take pride in every job — big or small.
+          No shortcuts, no excuses. Just quality painting done right.
+        </p>
+        <a href="#contact" class="btn btn--orange btn--lg" style="margin-top:1.5rem;">Get Your Free Quote</a>
+      </div>
+      <div class="why-us__features">
+        <div class="feature">
+          <div class="feature__icon">
+            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20 4L5 10v10c0 9.4 6.4 18.2 15 20 8.6-1.8 15-10.6 15-20V10L20 4z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+              <path d="M13 20l5 5 9-9" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div>
+            <h4>Licensed &amp; Insured</h4>
+            <p>Fully licensed painters with comprehensive public liability cover. You're protected.</p>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="feature__icon">
+            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="6" y="8" width="28" height="24" rx="2" stroke="currentColor" stroke-width="2.5"/>
+              <path d="M13 16h14M13 20h14M13 24h8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+              <circle cx="32" cy="32" r="6" fill="var(--orange)" stroke="var(--black)" stroke-width="1.5"/>
+              <path d="M29 32l2 2 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div>
+            <h4>Free, No-Obligation Quotes</h4>
+            <p>Transparent pricing with no hidden costs. Know exactly what you're getting before we start.</p>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="feature__icon">
+            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 32l6-6 4 4 8-10 6 12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M6 36h28" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <h4>Clean, Quality Workmanship</h4>
+            <p>We prep properly, protect your belongings, and leave the site cleaner than we found it.</p>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="feature__icon">
+            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="20" cy="20" r="14" stroke="currentColor" stroke-width="2.5"/>
+              <path d="M20 10v10l6 4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div>
+            <h4>Perth Locals — Always On Time</h4>
+            <p>Based right here in Perth. We show up when we say we will and finish when we say we will.</p>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="section services-section" id="services" aria-labelledby="services-title">
-      <div class="section-heading">
-        <p class="eyebrow">What we paint</p>
-        <h2 id="services-title">Painting services for Perth properties</h2>
-        <p>From a single room refresh to a full property repaint, [Business Name] Painting keeps the process straightforward and the finish sharp.</p>
+  <!-- ═══════════════════════════════════════
+       GALLERY
+  ═══════════════════════════════════════ -->
+  <section class="gallery" id="gallery">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Our Work</span>
+        <h2 class="section-title">Recent Projects</h2>
+        <p class="section-sub">See the quality we deliver — real jobs, real Perth homes and businesses.</p>
       </div>
 
-      <div class="service-grid">
-        <article class="service-card">
-          <div class="icon" aria-hidden="true">IN</div>
-          <h3>Interior painting</h3>
-          <p>Walls, ceilings, trims, doors, and fresh colour updates with careful masking and clean edges.</p>
-        </article>
-        <article class="service-card">
-          <div class="icon" aria-hidden="true">EX</div>
-          <h3>Exterior painting</h3>
-          <p>Weather-ready finishes for render, timber, eaves, fences, and external surfaces around your property.</p>
-        </article>
-        <article class="service-card">
-          <div class="icon" aria-hidden="true">HM</div>
-          <h3>Residential painting</h3>
-          <p>Neat, respectful painting for family homes, investment properties, renovations, and pre-sale touch ups.</p>
-        </article>
-        <article class="service-card">
-          <div class="icon" aria-hidden="true">CO</div>
-          <h3>Commercial painting</h3>
-          <p>Reliable painting for offices, shops, strata areas, and managed properties with minimal disruption.</p>
-        </article>
-        <article class="service-card">
-          <div class="icon" aria-hidden="true">FW</div>
-          <h3>Feature walls</h3>
-          <p>Accent walls, colour blocking, and statement finishes that give a room a clean focal point.</p>
-        </article>
-        <article class="service-card">
-          <div class="icon" aria-hidden="true">RF</div>
-          <h3>Roof painting</h3>
-          <p>Roof coating and colour refreshes suited to Perth conditions, quoted after a proper inspection.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="trust-section" id="why-us" aria-labelledby="why-us-title">
-      <div class="section-heading light">
-        <p class="eyebrow">Why choose us</p>
-        <h2 id="why-us-title">Straight answers, tidy work, solid finishes</h2>
-        <p>Homeowners and property managers want painters who turn up, protect the property, and leave the place looking better than they found it.</p>
-      </div>
-
-      <div class="trust-grid">
-        <article class="trust-item">
-          <span aria-hidden="true">01</span>
-          <h3>Licensed and insured</h3>
-          <p>Work is handled professionally, with the right protections in place for your property.</p>
-        </article>
-        <article class="trust-item">
-          <span aria-hidden="true">02</span>
-          <h3>Free quotes</h3>
-          <p>Clear, no-obligation quoting so you know what is included before the job begins.</p>
-        </article>
-        <article class="trust-item">
-          <span aria-hidden="true">03</span>
-          <h3>Clean and tidy workmanship</h3>
-          <p>Careful prep, covered surfaces, and a clean site at the end of each work day.</p>
-        </article>
-        <article class="trust-item">
-          <span aria-hidden="true">04</span>
-          <h3>Perth locals</h3>
-          <p>Local knowledge for Perth homes, rental properties, weather exposure, and common finishes.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section gallery-section" id="gallery" aria-labelledby="gallery-title">
-      <div class="section-heading">
-        <p class="eyebrow">Recent work</p>
-        <h2 id="gallery-title">Gallery coming soon</h2>
-        <p>Real project photos will be added here once the business name and portfolio are confirmed. No stock photos, no fake before-and-afters.</p>
-      </div>
-
-      <div class="gallery-grid" aria-label="Gallery placeholders">
-        <div class="gallery-placeholder">
-          <span>Interior repaint</span>
-          <strong>Photo coming soon</strong>
+      <div class="gallery__grid">
+        <div class="gallery__item">
+          <img src="images/placeholder-interior.svg" alt="Interior Painting — Living Room (photo coming soon)" class="gallery__img" />
         </div>
-        <div class="gallery-placeholder warm">
-          <span>Exterior refresh</span>
-          <strong>Photo coming soon</strong>
+        <div class="gallery__item">
+          <img src="images/placeholder-exterior.svg" alt="Exterior Painting — House Repaint (photo coming soon)" class="gallery__img" />
         </div>
-        <div class="gallery-placeholder blue">
-          <span>Commercial space</span>
-          <strong>Photo coming soon</strong>
+        <div class="gallery__item">
+          <img src="images/placeholder-feature.svg" alt="Feature Wall (photo coming soon)" class="gallery__img" />
         </div>
-        <div class="gallery-placeholder neutral">
-          <span>Feature wall</span>
-          <strong>Photo coming soon</strong>
+        <div class="gallery__item">
+          <img src="images/placeholder-commercial.svg" alt="Commercial Office (photo coming soon)" class="gallery__img" />
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="quote-section" id="quote" aria-labelledby="quote-title">
-      <div class="quote-copy">
-        <p class="eyebrow">Request a quote</p>
-        <h2 id="quote-title">Tell us what needs painting</h2>
-        <p>Send through the basics and [Business Name] Painting will get back to you to arrange a free quote. For urgent jobs, call <a href="tel:04XXXXXXXX">04XX XXX XXX</a>.</p>
-        <ul class="quote-list" aria-label="Quote benefits">
-          <li>Residential and commercial jobs</li>
-          <li>Interior, exterior, roof, and touch-up work</li>
-          <li>Service area: Perth and surrounding suburbs</li>
+  <!-- ═══════════════════════════════════════
+       QUOTE FORM
+  ═══════════════════════════════════════ -->
+  <section class="contact" id="contact">
+    <div class="container contact__inner">
+
+      <div class="contact__info">
+        <span class="section-tag">Let's Talk</span>
+        <h2 class="section-title">Get a Free Quote</h2>
+        <p class="section-sub">
+          Tell us about your project and we'll get back to you fast — usually within 24 hours.
+        </p>
+        <ul class="contact__details">
+          <li>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+            <a href="tel:04XXXXXXXX">04XX XXX XXX</a>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            <a href="mailto:hello@example.com">hello@example.com</a>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            <span>Serving all areas across Perth, WA</span>
+          </li>
         </ul>
       </div>
 
-      <form class="quote-form" id="quote-form" action="mailto:hello@example.com" method="post" enctype="text/plain">
+      <form class="quote-form" action="mailto:hello@example.com" method="post" enctype="text/plain" id="quote-form">
         <div class="form-row">
-          <label for="name">Name</label>
-          <input id="name" name="Name" type="text" autocomplete="name" required>
+          <div class="form-group">
+            <label for="name">Full Name *</label>
+            <input type="text" id="name" name="name" placeholder="John Smith" required />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number *</label>
+            <input type="tel" id="phone" name="phone" placeholder="04XX XXX XXX" required />
+          </div>
         </div>
-        <div class="form-row">
-          <label for="phone">Phone</label>
-          <input id="phone" name="Phone" type="tel" autocomplete="tel" required>
+        <div class="form-group">
+          <label for="email">Email Address *</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required />
         </div>
-        <div class="form-row">
-          <label for="email">Email</label>
-          <input id="email" name="Email" type="email" autocomplete="email" required>
-        </div>
-        <div class="form-row">
-          <label for="job-type">Type of job</label>
-          <select id="job-type" name="Type of job" required>
-            <option value="">Select a job type</option>
-            <option value="Interior">Interior</option>
-            <option value="Exterior">Exterior</option>
-            <option value="Commercial">Commercial</option>
-            <option value="Other">Other</option>
+        <div class="form-group">
+          <label for="job-type">Type of Job *</label>
+          <select id="job-type" name="job-type" required>
+            <option value="" disabled selected>Select a service…</option>
+            <option value="interior">Interior Painting</option>
+            <option value="exterior">Exterior Painting</option>
+            <option value="commercial">Commercial</option>
+            <option value="feature-wall">Feature Wall</option>
+            <option value="roof">Roof Painting</option>
+            <option value="other">Other</option>
           </select>
         </div>
-        <div class="form-row">
-          <label for="message">Message</label>
-          <textarea id="message" name="Message" rows="5" placeholder="Tell us about the property, rooms or surfaces, timing, and suburb." required></textarea>
+        <div class="form-group">
+          <label for="message">Tell Us About Your Project</label>
+          <textarea id="message" name="message" rows="4" placeholder="Property type, size, timeline, any specific requirements…"></textarea>
         </div>
-        <button class="button button-primary form-button" type="submit">Request a Free Quote</button>
-        <p class="form-success" id="form-success" role="status" aria-live="polite" tabindex="-1" hidden>Thanks. Your quote request is ready, and [Business Name] Painting will be in touch soon.</p>
+        <button type="submit" class="btn btn--red btn--lg btn--full">
+          Send My Quote Request
+          <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+        </button>
+        <p class="form-note">We respect your privacy. No spam, ever.</p>
       </form>
-    </section>
-  </main>
 
-  <footer class="site-footer">
-    <div>
-      <a class="wordmark footer-wordmark" href="#top" aria-label="[Business Name] Painting home">
-        <span class="wordmark-name">[Business Name]</span>
-        <span class="wordmark-trade">Painting</span>
-      </a>
-      <p>Professional painting services across Perth, WA.</p>
     </div>
-    <address>
-      <strong>Contact</strong>
-      <a href="tel:04XXXXXXXX">04XX XXX XXX</a>
-      <a href="mailto:hello@example.com">hello@example.com</a>
-      <span>Service area: Perth, WA</span>
-    </address>
-  </footer>
+  </section>
 
-  <div class="mobile-contact-bar" aria-label="Quick contact">
-    <a href="tel:04XXXXXXXX">Call Now</a>
-    <a href="#quote">Free Quote</a>
-  </div>
+  <!-- ═══════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="#top" class="nav__logo">
+          <span class="logo-block logo-block--red">[Business</span><span class="logo-block logo-block--white">Name]</span>
+          <span class="logo-tag">PAINTING</span>
+        </a>
+        <p>Perth's trusted painting professionals.<br/>Quality work. Honest pricing. Guaranteed.</p>
+      </div>
+      <div class="footer__col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="#services">Interior Painting</a></li>
+          <li><a href="#services">Exterior Painting</a></li>
+          <li><a href="#services">Commercial Painting</a></li>
+          <li><a href="#services">Feature Walls</a></li>
+          <li><a href="#services">Roof Painting</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h5>Contact</h5>
+        <ul>
+          <li>
+            <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+            <a href="tel:04XXXXXXXX">04XX XXX XXX</a>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            <a href="mailto:hello@example.com">hello@example.com</a>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            <span>Perth, Western Australia</span>
+          </li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h5>Service Area</h5>
+        <p class="footer__area">We service all Perth metro suburbs including the Northern, Southern, Eastern and Western corridors.</p>
+        <a href="#contact" class="btn btn--red" style="margin-top:1rem;display:inline-flex;">Free Quote →</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="container">
+        <p>&copy; <span id="year"></span> [Business Name] Painting. All rights reserved. | Perth, WA</p>
+        <p class="footer__lic">Licensed Painter | Fully Insured</p>
+      </div>
+    </div>
+  </footer>
 
   <script src="script.js"></script>
 </body>

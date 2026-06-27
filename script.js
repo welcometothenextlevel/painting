@@ -5,204 +5,203 @@
 (function () {
   'use strict';
 
-  /* ── DOM refs ── */
-  const hamburger = document.getElementById('hamburger');
-  const navLinks  = document.getElementById('nav-links');
-  const header    = document.querySelector('.site-header');
-  const yearEl    = document.getElementById('year');
+  const header     = document.querySelector('.site-header');
+  const hamburger  = document.getElementById('hamburger');
+  const navList    = document.getElementById('nav-list');
+  const yearEl     = document.getElementById('year');
 
-  /* ── Current year in footer ── */
-  if (yearEl) {
-    yearEl.textContent = new Date().getFullYear();
-  }
+  /* ── Footer year ── */
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  /* ── Hamburger / mobile nav ── */
-  function toggleMenu(force) {
-    const isOpen = typeof force === 'boolean' ? force : !navLinks.classList.contains('is-open');
-    navLinks.classList.toggle('is-open', isOpen);
-    hamburger.classList.toggle('is-open', isOpen);
-    hamburger.setAttribute('aria-expanded', isOpen);
-    document.body.style.overflow = isOpen ? 'hidden' : '';
-  }
-
-  if (hamburger && navLinks) {
-    hamburger.addEventListener('click', () => toggleMenu());
-
-    /* Close when a nav link is clicked */
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => toggleMenu(false));
-    });
-
-    /* Close on outside click */
-    document.addEventListener('click', (e) => {
-      if (
-        navLinks.classList.contains('is-open') &&
-        !navLinks.contains(e.target) &&
-        !hamburger.contains(e.target)
-      ) {
-        toggleMenu(false);
-      }
-    });
-
-    /* Close on Escape */
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && navLinks.classList.contains('is-open')) {
-        toggleMenu(false);
-        hamburger.focus();
-      }
-    });
-  }
-
-  /* ── Header scroll shadow ── */
+  /* ── Header scroll class ── */
   if (header) {
-    let ticking = false;
-    window.addEventListener('scroll', () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          if (window.scrollY > 20) {
-            header.style.boxShadow = '0 4px 24px rgba(0,0,0,0.5)';
-          } else {
-            header.style.boxShadow = 'none';
-          }
-          ticking = false;
-        });
-        ticking = true;
-      }
+    window.addEventListener('scroll', function () {
+      header.classList.toggle('scrolled', window.scrollY > 30);
     }, { passive: true });
   }
 
-  /* ── Smooth scroll for anchor links ── */
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  /* ── Mobile hamburger ── */
+  function setMenuOpen(open) {
+    if (!navList || !hamburger) return;
+    navList.classList.toggle('is-open', open);
+    hamburger.classList.toggle('is-open', open);
+    hamburger.setAttribute('aria-expanded', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+
+  if (hamburger) {
+    hamburger.addEventListener('click', function () {
+      const isOpen = navList.classList.contains('is-open');
+      setMenuOpen(!isOpen);
+    });
+  }
+
+  /* Close mobile nav when a top-level (non-dropdown-trigger) link is clicked */
+  if (navList) {
+    navList.querySelectorAll('a:not(.nav__item--has-drop > .nav__link)').forEach(function (link) {
+      link.addEventListener('click', function () {
+        if (window.innerWidth <= 768) setMenuOpen(false);
+      });
+    });
+  }
+
+  /* Close on outside tap */
+  document.addEventListener('click', function (e) {
+    if (navList && navList.classList.contains('is-open')) {
+      if (!navList.contains(e.target) && !hamburger.contains(e.target)) {
+        setMenuOpen(false);
+      }
+    }
+  });
+
+  /* Close on Escape */
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      setMenuOpen(false);
+      closeAllDropdowns();
+    }
+  });
+
+  /* ── Services dropdown ── */
+  const dropItems = document.querySelectorAll('.nav__item--has-drop');
+
+  function closeAllDropdowns() {
+    dropItems.forEach(function (item) {
+      item.classList.remove('is-open');
+    });
+  }
+
+  dropItems.forEach(function (item) {
+    const trigger = item.querySelector('.nav__link');
+    const dropdown = item.querySelector('.nav__dropdown');
+    if (!trigger || !dropdown) return;
+
+    /* Desktop: hover */
+    item.addEventListener('mouseenter', function () {
+      if (window.innerWidth > 768) {
+        closeAllDropdowns();
+        item.classList.add('is-open');
+      }
+    });
+    item.addEventListener('mouseleave', function () {
+      if (window.innerWidth > 768) {
+        item.classList.remove('is-open');
+      }
+    });
+
+    /* All sizes: click/tap on the trigger toggles dropdown */
+    trigger.addEventListener('click', function (e) {
+      const alreadyOpen = item.classList.contains('is-open');
+      closeAllDropdowns();
+      if (!alreadyOpen) {
+        item.classList.add('is-open');
+        /* On mobile, if the href is just "#services" (homepage anchor),
+           only prevent default navigation when we're toggling open */
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+        }
+      }
+    });
+  });
+
+  /* Close dropdown when clicking outside */
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('.nav__item--has-drop')) {
+      closeAllDropdowns();
+    }
+  });
+
+  /* ── Smooth scroll for same-page anchors ── */
+  document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
     anchor.addEventListener('click', function (e) {
       const targetId = this.getAttribute('href');
-      if (targetId === '#') return;
+      if (!targetId || targetId === '#') return;
       const target = document.querySelector(targetId);
       if (!target) return;
 
       e.preventDefault();
-
-      const navHeight = header ? header.offsetHeight : 72;
-      const targetTop = target.getBoundingClientRect().top + window.scrollY - navHeight;
-
-      window.scrollTo({ top: targetTop, behavior: 'smooth' });
+      const offset = header ? header.offsetHeight : 70;
+      const top = target.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top: top, behavior: 'smooth' });
     });
   });
 
-  /* ── Active nav link on scroll ── */
-  const sections  = document.querySelectorAll('section[id]');
-  const navAnchors = document.querySelectorAll('.nav__link');
-
-  function setActiveNav() {
-    const scrollPos = window.scrollY + (header ? header.offsetHeight : 72) + 40;
-
-    let current = '';
-    sections.forEach(section => {
-      if (section.offsetTop <= scrollPos) {
-        current = section.id;
-      }
-    });
-
-    navAnchors.forEach(link => {
-      link.classList.toggle(
-        'nav__link--active',
-        link.getAttribute('href') === `#${current}`
-      );
-    });
-  }
-
-  window.addEventListener('scroll', setActiveNav, { passive: true });
-  setActiveNav();
-
-  /* ── CSS for active nav link ── */
-  const activeStyle = document.createElement('style');
-  activeStyle.textContent = `.nav__link--active { color: var(--orange) !important; }`;
-  document.head.appendChild(activeStyle);
-
-  /* ── Fade-in on scroll (Intersection Observer) ── */
-  const fadeTargets = document.querySelectorAll(
-    '.service-card, .feature, .gallery__item, .contact__info, .quote-form'
-  );
-
+  /* ── Scroll-in fade for cards ── */
   if ('IntersectionObserver' in window) {
-    const fadeStyle = document.createElement('style');
-    fadeStyle.textContent = `
-      .fade-hidden {
+    const style = document.createElement('style');
+    style.textContent = `
+      .js-fade {
         opacity: 0;
-        transform: translateY(24px);
-        transition: opacity 0.55s ease, transform 0.55s ease;
+        transform: translateY(20px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
       }
-      .fade-visible {
-        opacity: 1 !important;
-        transform: translateY(0) !important;
+      .js-fade.is-visible {
+        opacity: 1;
+        transform: translateY(0);
       }
     `;
-    document.head.appendChild(fadeStyle);
+    document.head.appendChild(style);
 
-    fadeTargets.forEach((el, i) => {
-      el.classList.add('fade-hidden');
-      el.style.transitionDelay = `${(i % 4) * 0.08}s`;
-    });
+    const fadeEls = document.querySelectorAll(
+      '.service-card, .feature, .step, .gallery__item, .service-intro__aside'
+    );
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
         if (entry.isIntersecting) {
-          entry.target.classList.add('fade-visible');
+          entry.target.classList.add('is-visible');
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.12 });
+    }, { threshold: 0.1 });
 
-    fadeTargets.forEach(el => observer.observe(el));
+    fadeEls.forEach(function (el, i) {
+      el.classList.add('js-fade');
+      el.style.transitionDelay = (i % 4) * 0.07 + 's';
+      observer.observe(el);
+    });
   }
 
-  /* ── Quote form UX ── */
+  /* ── Quote form ── */
   const form = document.getElementById('quote-form');
   if (form) {
-    /* Visual feedback on submit */
     form.addEventListener('submit', function (e) {
       const btn = form.querySelector('button[type="submit"]');
-      if (!btn) return;
 
-      /* Basic validation check */
-      const required = form.querySelectorAll('[required]');
+      /* Clear prior error states */
+      form.querySelectorAll('input, select, textarea').forEach(function (f) {
+        f.style.borderColor = '';
+      });
+
+      /* Validate required fields */
       let valid = true;
-      required.forEach(field => {
-        field.style.borderColor = '';
+      form.querySelectorAll('[required]').forEach(function (field) {
         if (!field.value.trim()) {
-          field.style.borderColor = '#C8102E';
+          field.style.borderColor = 'var(--red)';
           valid = false;
         }
       });
 
       if (!valid) {
         e.preventDefault();
-        const first = form.querySelector('[required]:invalid, [required][style*="C8102E"]');
-        if (first) first.focus();
+        const firstBad = form.querySelector('[required][style*="red"]');
+        if (firstBad) firstBad.focus();
         return;
       }
 
-      /* If form is using mailto, give user feedback */
-      btn.textContent = 'Opening email client…';
-      btn.disabled = true;
-      setTimeout(() => {
-        btn.innerHTML = `
-          Quote request sent!
-          <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
-        `;
-        btn.style.background = 'var(--orange)';
-        setTimeout(() => {
-          btn.innerHTML = `Send My Quote Request
-            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>`;
-          btn.style.background = '';
+      if (btn) {
+        btn.textContent = 'Opening email client…';
+        btn.disabled = true;
+        setTimeout(function () {
+          btn.textContent = 'Send Quote Request';
           btn.disabled = false;
-        }, 3000);
-      }, 100);
+        }, 4000);
+      }
     });
 
-    /* Clear error state on input */
-    form.querySelectorAll('input, select, textarea').forEach(field => {
-      field.addEventListener('input', () => {
-        field.style.borderColor = '';
+    form.querySelectorAll('input, select, textarea').forEach(function (field) {
+      field.addEventListener('input', function () {
+        this.style.borderColor = '';
       });
     });
   }

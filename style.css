@@ -1412,3 +1412,13 @@ button { cursor: pointer; font-family: inherit; }
 .reveal-delay-2 { transition-delay: 0.2s; }
 .reveal-delay-3 { transition-delay: 0.3s; }
 
+
+/* ── Hero tagline line ── */
+.hero__tagline {
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--orange);
+  margin-bottom: 1.5rem;
+  margin-top: -0.25rem;
+}

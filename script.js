@@ -455,4 +455,73 @@
     });
   }
 
+  /* ─────────────────────────────────────────
+     TIMED PROMO POPUP — appears after 3s
+  ───────────────────────────────────────── */
+  (function () {
+    // Inject HTML
+    var promoHTML = [
+      '<div class="promo-overlay" id="promo-overlay" role="dialog" aria-modal="true" aria-label="Free Quote Offer">',
+        '<div class="promo-popup" id="promo-popup">',
+          '<button class="promo-popup__close" id="promo-close" aria-label="Close">×</button>',
+          '<span class="promo-popup__emoji">🎨</span>',
+          '<h2 class="promo-popup__title">Get a <span>Free Quote</span> Today!</h2>',
+          '<p class="promo-popup__body">Call us anytime — we\'ll get back to you fast.</p>',
+          '<a href="tel:0447409970" class="promo-popup__phone">0447 409 970</a>',
+          '<p class="promo-popup__body" style="margin-bottom:1rem;">or fill in the form below.</p>',
+          '<div class="promo-popup__actions">',
+            '<a href="#contact" class="btn btn--red btn--lg btn--full" id="promo-cta">Get a Free Quote</a>',
+            '<div class="promo-popup__divider">or</div>',
+            '<a href="tel:0447409970" class="btn btn--orange btn--full">Call 0447 409 970</a>',
+          '</div>',
+        '</div>',
+      '</div>'
+    ].join('');
+    document.body.insertAdjacentHTML('beforeend', promoHTML);
+
+    var promoOverlay = document.getElementById('promo-overlay');
+    var promoClose   = document.getElementById('promo-close');
+    var promoCta     = document.getElementById('promo-cta');
+
+    function closePromo() {
+      promoOverlay.classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+
+    // Open after 3 seconds (only once per session)
+    if (!sessionStorage.getItem('promo-seen')) {
+      setTimeout(function () {
+        promoOverlay.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+        sessionStorage.setItem('promo-seen', '1');
+      }, 3000);
+    }
+
+    // Close on X
+    promoClose.addEventListener('click', closePromo);
+
+    // Close on backdrop click
+    promoOverlay.addEventListener('click', function (e) {
+      if (e.target === promoOverlay) closePromo();
+    });
+
+    // CTA: close popup and smooth-scroll to contact form
+    promoCta.addEventListener('click', function (e) {
+      e.preventDefault();
+      closePromo();
+      var contact = document.getElementById('contact');
+      if (contact) {
+        var navH = header ? header.offsetHeight : 70;
+        setTimeout(function () {
+          window.scrollTo({ top: contact.getBoundingClientRect().top + window.scrollY - navH, behavior: 'smooth' });
+        }, 200);
+      }
+    });
+
+    // Escape key
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && promoOverlay.classList.contains('is-open')) closePromo();
+    });
+  }());
+
 })();
